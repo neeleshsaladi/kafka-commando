@@ -13,20 +13,21 @@ $ cd kafka_2.13-2.7.0
 # Note: Soon, ZooKeeper will no longer be required by Apache Kafka.
 $ bin/zookeeper-server-start.sh config/zookeeper.properties
 ```
+- Now in new window
 ```Bash
 .\bin\windows\kafka-server-start.bat .\config\server.properties
 ```
+- Now in new window
 ```Bash
 # Start the Kafka broker service
 .\bin\windows\kafka-topics.bat --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --create --topic bearcat-messages
 .\bin\windows\kafka-topics.bat --zookeeper localhost:2181 --list
 ```
+- Now in new window
 ```Bash
 $ bin/kafka-topics.sh --create --topic quickstart-events --bootstrap-server localhost:9092
 ```
-```Bash
-.\bin\windows\kafka-server-start.bat .\config\server.properties
-```
+- Now in new window
 ```Bash
 .\bin\windows\kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic bearcat-messages --from-beginning
 ```
