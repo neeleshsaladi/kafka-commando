@@ -6,4 +6,27 @@
 $ tar -xzf kafka_2.13-2.7.0.tgz
 $ cd kafka_2.13-2.7.0
 ```
+- Now we have to open powershell as admin in the kafka extracted folder and have to run five different commands in five different powershell windows with same path.
 
+```Bash
+# Start the ZooKeeper service
+# Note: Soon, ZooKeeper will no longer be required by Apache Kafka.
+$ bin/zookeeper-server-start.sh config/zookeeper.properties
+```
+```Bash
+.\bin\windows\kafka-server-start.bat .\config\server.properties
+```
+```Bash
+# Start the Kafka broker service
+.\bin\windows\kafka-topics.bat --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --create --topic bearcat-messages
+.\bin\windows\kafka-topics.bat --zookeeper localhost:2181 --list
+```
+```Bash
+$ bin/kafka-topics.sh --create --topic quickstart-events --bootstrap-server localhost:9092
+```
+```Bash
+.\bin\windows\kafka-server-start.bat .\config\server.properties
+```
+```Bash
+.\bin\windows\kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic bearcat-messages --from-beginning
+```
