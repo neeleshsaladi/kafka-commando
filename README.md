@@ -17,17 +17,17 @@ $ bin/zookeeper-server-start.sh config/zookeeper.properties
 ```Bash
 .\bin\windows\kafka-server-start.bat .\config\server.properties
 ```
-- After all the services are started we need to do the kafka work of even streaming for which it is designed 
+- After all the services are started we need to do the kafka work of even streaming for which it is designed for and we create a topic for taking and in displaying the notes in the topic.
 ```Bash
 # Start the Kafka broker service
 .\bin\windows\kafka-topics.bat --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --create --topic the-heart-words
 .\bin\windows\kafka-topics.bat --zookeeper localhost:2181 --list
 ```
-- Now in new window
+- Now in new window we have to run this command and enter the notes that we want to display in the localhost server.
 ```Bash
 $ bin/kafka-topics.sh --create --topic quickstart-events --bootstrap-server localhost:9092
 ```
-- Now in new window
+- Now in new window when we run this command we will get a display of notes.
 ```Bash
 .\bin\windows\kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic the-heart-words --from-beginning
 ```
